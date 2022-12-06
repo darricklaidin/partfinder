@@ -1,0 +1,72 @@
+*, *::before, *::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  border: 2px solid blue;
+  min-height: 100vh;
+  text-align: center;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+}
+
+.partFinder {
+  border: 2px solid red;
+  
+  width: 70%;
+}
+
+.filterBox {
+  border: 2px solid green;
+  
+  text-align: left;
+}
+
+.filterOptionBox {
+  border: 2px solid blue;
+  
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.filterOption {
+  border: 2px solid orangered;
+  
+  display: flex;
+  gap: 5px;
+}
+
+.results {
+  border: 2px solid purple;
+  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.result {
+  width: 150px;
+  aspect-ratio: 2 / 1;
+  
+  background-color: yellowgreen;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 10px;
+}
