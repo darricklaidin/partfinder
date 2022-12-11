@@ -65,7 +65,7 @@ export default class PartFinder extends Component {
   }
   
   async setModelOptions() {
-    const response = await fetch(`http://partfinder.test/api/parts?make=${this.state.make}`);
+    const response = await fetch(`http://partfinder.test/api/parts?make=${encodeURIComponent(this.state.make)}`);
     if (response.status !== 200) {
       console.log("Error");
       return;
@@ -83,7 +83,7 @@ export default class PartFinder extends Component {
   }
   
   async setTypeOptions() {
-    const response = await fetch(`http://partfinder.test/api/parts?make=${this.state.make}&model=${this.state.model}`);
+    const response = await fetch(`http://partfinder.test/api/parts?make=${encodeURIComponent(this.state.make)}&model=${encodeURIComponent(this.state.model)}`);
     if (response.status !== 200) {
       console.log("Error");
       return;
@@ -101,7 +101,7 @@ export default class PartFinder extends Component {
   }
   
   async updateFilteredList() {
-    const response = await fetch(`http://partfinder.test/api/parts?make=${this.state.make}&model=${this.state.model}&type=${this.state.type}`);
+    const response = await fetch(`http://partfinder.test/api/parts?make=${encodeURIComponent(this.state.make)}&model=${encodeURIComponent(this.state.model)}&type=${encodeURIComponent(this.state.type)}`);
     if (response.status !== 200) {
       console.log("Error");
       return;
@@ -151,7 +151,7 @@ export default class PartFinder extends Component {
       <div className="partFinder">
         <FilterBox make={this.state.make} model={this.state.model} type={this.state.type} filteredList={this.state.filteredList} makeOptions={this.state.makeOptions} modelOptions={this.state.modelOptions} typeOptions={this.state.typeOptions} updateMake={this.updateMake} updateModel={this.updateModel} updateType={this.updateType}/>
         
-        {/* <Results filteredList={this.state.filteredList}/> */}
+        <Results filteredList={this.state.filteredList}/>
       </div>
     );
   }
