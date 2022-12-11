@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uniqid from "uniqid";
 
 export default class FilterBox extends Component {
   render() {
@@ -13,29 +14,31 @@ export default class FilterBox extends Component {
           
           <div className="filterOption">
             <label htmlFor="makeFilter">Make:</label>
-            <select id="makeFilter">
+            <select id="makeFilter" onChange={this.props.updateMake} value={this.props.make}>
               <option value="all">All</option>
-              {/* These will be dynamically generated */}
-              <option value="name">AIRMAN</option>
-              <option value="price">Caterpillar</option>
+              {this.props.makeOptions.map((makeOption) => {
+                return <option key={uniqid()} value={makeOption}>{makeOption}</option>;
+              })}
             </select>
           </div>
           
           <div className="filterOption">
             <label htmlFor="modelFilter">Model:</label>
-            <select id="modelFilter">
+            <select id="modelFilter" onChange={this.props.updateModel} value={this.props.model}>
               <option value="all">All</option>
-              <option value="name">AIRMAN</option>
-              <option value="price">Caterpillar</option>
+              {this.props.modelOptions.map((modelOption) => {
+                return <option key={uniqid()} value={modelOption}>{modelOption}</option>;
+              })}
             </select>
           </div>
           
           <div className="filterOption">
             <label htmlFor="typeFilter">Type:</label>
-            <select id="typeFilter">
+            <select id="typeFilter" onChange={this.props.updateType} value={this.props.type}>
               <option value="all">All</option>
-              <option value="name">AIRMAN</option>
-              <option value="price">Caterpillar</option>
+              {this.props.typeOptions.map((typeOption) => {
+                return <option key={uniqid()} value={typeOption}>{typeOption}</option>;
+              })}
             </select>
           </div>
           
