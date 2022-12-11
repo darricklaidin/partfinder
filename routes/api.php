@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Set up request parameters for make, model, and type
+// Get all parts based on filter
 Route::get("/parts", function() {
     return Part::filter()->get();
 });
