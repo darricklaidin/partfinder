@@ -52,6 +52,10 @@ select {
     flex-direction: column;
     gap: 25px;
   }
+  
+  .results {
+    height: 55vh !important;
+  }
 }
 
 .filterOption {
@@ -62,6 +66,7 @@ select {
 .results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: 100px;
   gap: 50px;
   
   overflow-y: scroll;
@@ -70,7 +75,6 @@ select {
 
 .result {
   width: 100%;
-  aspect-ratio: 2 / 1;
   
   font-size: min(10vw, 1rem);
   
