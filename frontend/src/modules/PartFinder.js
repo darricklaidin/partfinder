@@ -112,31 +112,39 @@ export default class PartFinder extends Component {
   
   // Update the make state
   updateMake(event) {
+    // Reduce the number of records to rerender by clearing the list when awaiting
+    this.setState({filteredList: []});
+    
     let value = event.target.value;
     if (value === "all") {
       value = "";
     }
+    
     this.setState({ make: value, model: "", type: "" }, () => {
+      this.updateFilteredList();
       this.setModelOptions();
       this.setTypeOptions();
-      this.updateFilteredList();
     });
   }
   
   // Update the model state
   updateModel(event) {
+    this.setState({filteredList: []});
+    
     let value = event.target.value;
     if (value === "all") {
       value = "";
     }
     this.setState({ model: value, type: ""}, () => {
-      this.setTypeOptions();
       this.updateFilteredList();
+      this.setTypeOptions();
     });
   } 
 
   // Update the type state
   updateType(event) {
+    this.setState({filteredList: []});
+    
     let value = event.target.value;
     if (value === "all") {
       value = "";
