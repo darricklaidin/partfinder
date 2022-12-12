@@ -15,11 +15,11 @@ export default class Results extends Component {
     return (
       <div className="results">
         
-        { filteredList.length === 0 ? <div> No results found </div> : uniquePartNumbers.map((partNo) => {
+        {uniquePartNumbers.map((partNo) => {
           return (
             <div className="result" key={uniqid()}>{partNo}</div>
           );
-        }) }
+        })}
         
       </div>
     );
