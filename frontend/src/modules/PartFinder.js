@@ -110,7 +110,6 @@ export default class PartFinder extends Component {
     this.setState({ filteredList: data });
   }
   
-  // Update the make state
   updateMake(event) {
     // Reduce the number of records to rerender by clearing the list when awaiting
     this.setState({filteredList: []});
@@ -127,7 +126,6 @@ export default class PartFinder extends Component {
     });
   }
   
-  // Update the model state
   updateModel(event) {
     this.setState({filteredList: []});
     
@@ -141,7 +139,6 @@ export default class PartFinder extends Component {
     });
   } 
 
-  // Update the type state
   updateType(event) {
     this.setState({filteredList: []});
     
@@ -157,9 +154,19 @@ export default class PartFinder extends Component {
   render() {
     return (
       <div className="partFinder">
-        <FilterBox make={this.state.make} model={this.state.model} type={this.state.type} filteredList={this.state.filteredList} makeOptions={this.state.makeOptions} modelOptions={this.state.modelOptions} typeOptions={this.state.typeOptions} updateMake={this.updateMake} updateModel={this.updateModel} updateType={this.updateType}/>
+        <FilterBox 
+        make={this.state.make} 
+        model={this.state.model} 
+        type={this.state.type} 
+        filteredList={this.state.filteredList} 
+        makeOptions={this.state.makeOptions} 
+        modelOptions={this.state.modelOptions} 
+        typeOptions={this.state.typeOptions} 
+        updateMake={this.updateMake} 
+        updateModel={this.updateModel} 
+        updateType={this.updateType} />
         
-        <Results filteredList={this.state.filteredList}/>
+        <Results filteredList={this.state.filteredList} />
       </div>
     );
   }
